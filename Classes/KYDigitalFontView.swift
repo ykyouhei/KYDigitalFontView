@@ -37,26 +37,26 @@ public class KYDigitalFontView: UIView {
         static func fromMask(raw: UInt) -> DrawPositions { return self(raw) }
         public var rawValue: UInt { return self.value }
         
-        static var None: DrawPositions { return self(0b0000000000000000) }
-        static var _0  : DrawPositions { return self(0b0000000000000001) }
-        static var _1  : DrawPositions { return self(0b0000000000000010) }
-        static var _2  : DrawPositions { return self(0b0000000000000100) }
-        static var _3  : DrawPositions { return self(0b0000000000001000) }
-        static var _4  : DrawPositions { return self(0b0000000000010000) }
-        static var _5  : DrawPositions { return self(0b0000000000100000) }
-        static var _6  : DrawPositions { return self(0b0000000001000000) }
-        static var _7  : DrawPositions { return self(0b0000000010000000) }
-        static var _8  : DrawPositions { return self(0b0000000100000000) }
-        static var _9  : DrawPositions { return self(0b0000001000000000) }
-        static var _10 : DrawPositions { return self(0b0000010000000000) }
-        static var _11 : DrawPositions { return self(0b0000100000000000) }
-        static var _12 : DrawPositions { return self(0b0001000000000000) }
-        static var _13 : DrawPositions { return self(0b0010000000000000) }
-        static var _14 : DrawPositions { return self(0b0100000000000000) }
-        static var _15 : DrawPositions { return self(0b1000000000000000) }
-        static var All : DrawPositions { return self(0b1111111111111111) }
+        public static var None: DrawPositions { return self(0b0000000000000000) }
+        public static var _0  : DrawPositions { return self(0b0000000000000001) }
+        public static var _1  : DrawPositions { return self(0b0000000000000010) }
+        public static var _2  : DrawPositions { return self(0b0000000000000100) }
+        public static var _3  : DrawPositions { return self(0b0000000000001000) }
+        public static var _4  : DrawPositions { return self(0b0000000000010000) }
+        public static var _5  : DrawPositions { return self(0b0000000000100000) }
+        public static var _6  : DrawPositions { return self(0b0000000001000000) }
+        public static var _7  : DrawPositions { return self(0b0000000010000000) }
+        public static var _8  : DrawPositions { return self(0b0000000100000000) }
+        public static var _9  : DrawPositions { return self(0b0000001000000000) }
+        public static var _10 : DrawPositions { return self(0b0000010000000000) }
+        public static var _11 : DrawPositions { return self(0b0000100000000000) }
+        public static var _12 : DrawPositions { return self(0b0001000000000000) }
+        public static var _13 : DrawPositions { return self(0b0010000000000000) }
+        public static var _14 : DrawPositions { return self(0b0100000000000000) }
+        public static var _15 : DrawPositions { return self(0b1000000000000000) }
+        public static var All : DrawPositions { return self(0b1111111111111111) }
         
-        static func positionsWithCharacter(char: Character) -> DrawPositions {
+        public static func positionsWithCharacter(char: Character) -> DrawPositions {
             let positions: DrawPositions
             switch char {
             case "a", "A":

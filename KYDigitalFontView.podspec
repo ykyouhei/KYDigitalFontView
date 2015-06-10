@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "Kyohei Yamaguchi" => "kyouhei.lab@gmail.com" }
   s.social_media_url   = "https://twitter.com/kyo__hei"
-  s.platform     = :ios
+  s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/ykyouhei/KYDigitalFontView.git", :tag => s.version.to_s }
   s.source_files = "Classes/*.swift"
   s.requires_arc = true
