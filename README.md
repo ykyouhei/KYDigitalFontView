@@ -1,7 +1,10 @@
 # KYDigitalFontView
 
-[![Pod Version](http://img.shields.io/cocoapods/v/KYDigitalFontView.svg?style=flat)](http://cocoadocs.org/docsets/KYDigitalFontView/) [![Pod Platform](http://img.shields.io/cocoapods/p/KYDigitalFontView.svg?style=flat)](http://cocoadocs.org/docsets/KYDigitalFontView/) [![Pod License](http://img.shields.io/cocoapods/l/KYDigitalFontView.svg?style=flat)](https://github.com/ykyohei/KYDigitalFontView/blob/master/LICENSE) [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
-)](https://developer.apple.com/swift)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Pod Version](http://img.shields.io/cocoapods/v/KYDigitalFontView.svg?style=flat)](http://cocoadocs.org/docsets/KYDigitalFontView/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/KYDigitalFontView.svg?style=flat)](http://cocoadocs.org/docsets/KYDigitalFontView/)
+[![Pod License](http://img.shields.io/cocoapods/l/KYDigitalFontView.svg?style=flat)](https://github.com/ykyohei/KYDigitalFontView/blob/master/LICENSE)
+![Swift version](https://img.shields.io/badge/swift-3.0-orange.svg)
 
 `KYDigitalFontView` is a custom view that displays the character in the digital font style
 
