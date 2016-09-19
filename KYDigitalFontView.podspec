@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/kyo__hei"
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/ykyouhei/KYDigitalFontView.git", :tag => s.version.to_s }
-  s.source_files = "KYDigitalFontVie/Classes/*.swift"
+  s.source_files = "KYDigitalFontView/Classes/*.swift"
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
 end
