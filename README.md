@@ -41,10 +41,10 @@ digitalFontView.borderWidth   = 1
 digitalFontView.borderColor   = UIColor.redColor()
 digitalFontView.fillColor     = UIColor.cyanColor()
 digitalFontView.lineWidth     = 15
-digitalFontView.drawPositions = KYDigitalFontView.DrawPositions.positionsWithCharacter("A")
+digitalFontView.drawPositions = KYDigitalFontView.DrawPositions(character: "A")
 
 /* Custom Drawing
-digitalFontView.drawPositions = ._0 | ._1 | ._14 | ._15
+digitalFontView.drawPositions = [._0, ._1, ._14, ._15]
 */
 
 view.addSubview(v)
@@ -58,10 +58,10 @@ view.addSubview(v)
 ### Drawing Character 
 ```Swift
 // From Character
-digitalFontView.drawPositions = KYDigitalFontView.DrawPositions.positionsWithCharacter("A")
+digitalFontView.drawPositions = KYDigitalFontView.DrawPositions(character: "A")
 
 // Custom Drawing
-digitalFontView.drawPositions = ._0 | ._1 | ._2
+digitalFontView.drawPositions = [._0, ._1, ._2]
 ```
 
 #### Supported Characters
