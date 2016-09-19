@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CpO-zH-hSj">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Kma-ct-GeE">
+            <objects>
+                <viewController id="CpO-zH-hSj" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PIc-w5-mCq"/>
+                        <viewControllerLayoutGuide type="bottom" id="DAM-PS-rAc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5nX-cN-bCe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <switch opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efo-JZ-9Ez">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="2hb-gy-UfV"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvq-i5-SwH">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="4r8-28-kUg"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aou-eP-7Pa">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="m9H-MQ-VhX"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WKV-vv-4VD">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="oaG-3e-10B"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhd-gl-xio">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="Jzq-Dd-UVL"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-8M-iFa">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="pms-XB-yyR"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-GT-XQa">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="KY2-d4-boe"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3k-RK-IkF">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="Nqi-3X-sOj"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvE-OL-yEN">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="vr8-NV-fdc"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ChO-XI-hrU">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="o2E-1M-wU7"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jxK-Tu-WAX">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="ZMJ-SP-MgP"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0t-fG-6Cc">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="0dQ-yK-cOk"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAh-SK-dnL">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="2ps-xC-0ax"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62v-PE-AkS">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="hJk-bC-nJl"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMQ-47-hhP">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="arS-Cy-wlY"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gbi-oj-GpJ">
+                                <connections>
+                                    <action selector="handleValueChaned:" destination="CpO-zH-hSj" eventType="valueChanged" id="Pgk-oT-PSF"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgK-Ex-QKD" customClass="KYDigitalFontView" customModule="KYDigitalFontView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hgK-Ex-QKD" secondAttribute="height" multiplier="5:7" id="zUJ-Vr-cS7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.25882352939999997" green="0.83137254900000002" blue="0.31764705879999999" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="character" value="¥"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="input character .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="twS-en-9g6">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="ANk-5b-xLC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CpO-zH-hSj" id="fga-89-h37"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="WAh-SK-dnL" firstAttribute="top" secondItem="l0t-fG-6Cc" secondAttribute="top" id="10u-iz-GJi"/>
+                            <constraint firstItem="62v-PE-AkS" firstAttribute="top" secondItem="WAh-SK-dnL" secondAttribute="top" id="1pf-dk-1QQ"/>
+                            <constraint firstItem="ChO-XI-hrU" firstAttribute="leading" secondItem="jxK-Tu-WAX" secondAttribute="trailing" constant="8" symbolic="YES" id="6D9-yx-wgb"/>
+                            <constraint firstItem="DAM-PS-rAc" firstAttribute="top" secondItem="l0t-fG-6Cc" secondAttribute="bottom" constant="100" id="7Gz-mM-P8U"/>
+                            <constraint firstItem="efo-JZ-9Ez" firstAttribute="leading" secondItem="wvq-i5-SwH" secondAttribute="trailing" constant="8" symbolic="YES" id="7bP-3e-oCf"/>
+                            <constraint firstItem="twS-en-9g6" firstAttribute="centerX" secondItem="l0t-fG-6Cc" secondAttribute="centerX" constant="-0.5" id="7di-0N-mFq"/>
+                            <constraint firstItem="y0S-GT-XQa" firstAttribute="top" secondItem="Mhs-8M-iFa" secondAttribute="top" id="89A-eF-uXV"/>
+                            <constraint firstItem="WAh-SK-dnL" firstAttribute="leading" secondItem="NMQ-47-hhP" secondAttribute="leading" id="93t-tf-Vbc"/>
+                            <constraint firstItem="y0S-GT-XQa" firstAttribute="top" secondItem="hgK-Ex-QKD" secondAttribute="bottom" constant="47" id="A3Y-jf-z4o"/>
+                            <constraint firstItem="l0t-fG-6Cc" firstAttribute="leading" secondItem="WAh-SK-dnL" secondAttribute="trailing" constant="8" symbolic="YES" id="A7K-Sa-IBA"/>
+                            <constraint firstItem="wvq-i5-SwH" firstAttribute="leading" secondItem="RvE-OL-yEN" secondAttribute="leading" id="A8r-V7-Pvs"/>
+                            <constraint firstAttribute="centerX" secondItem="hgK-Ex-QKD" secondAttribute="centerX" constant="-5" id="EMy-w7-Heh"/>
+                            <constraint firstItem="WKV-vv-4VD" firstAttribute="top" secondItem="Mhs-8M-iFa" secondAttribute="bottom" constant="8" symbolic="YES" id="FAc-2Q-W6x"/>
+                            <constraint firstItem="jxK-Tu-WAX" firstAttribute="leading" secondItem="Gbi-oj-GpJ" secondAttribute="leading" id="Frn-Z0-gMK"/>
+                            <constraint firstItem="y0S-GT-XQa" firstAttribute="leading" secondItem="wvq-i5-SwH" secondAttribute="leading" id="Hzr-rH-ZPV"/>
+                            <constraint firstItem="efo-JZ-9Ez" firstAttribute="top" secondItem="wvq-i5-SwH" secondAttribute="top" id="Jhz-fB-AFL"/>
+                            <constraint firstItem="jxK-Tu-WAX" firstAttribute="top" secondItem="ChO-XI-hrU" secondAttribute="top" id="KHq-kC-VzR"/>
+                            <constraint firstItem="WKV-vv-4VD" firstAttribute="leading" secondItem="jhd-gl-xio" secondAttribute="trailing" constant="20" id="Kos-ZZ-5WR"/>
+                            <constraint firstItem="NMQ-47-hhP" firstAttribute="top" secondItem="Gbi-oj-GpJ" secondAttribute="top" id="MAB-zl-s8X"/>
+                            <constraint firstItem="DAM-PS-rAc" firstAttribute="top" secondItem="twS-en-9g6" secondAttribute="bottom" constant="23" id="NOo-5a-rmB"/>
+                            <constraint firstItem="jxK-Tu-WAX" firstAttribute="leading" secondItem="l0t-fG-6Cc" secondAttribute="trailing" constant="8" symbolic="YES" id="P2I-Zt-xDR"/>
+                            <constraint firstItem="WKV-vv-4VD" firstAttribute="top" secondItem="aou-eP-7Pa" secondAttribute="top" id="QyB-ro-txO"/>
+                            <constraint firstItem="jhd-gl-xio" firstAttribute="top" secondItem="WKV-vv-4VD" secondAttribute="top" id="ZcP-24-dwy"/>
+                            <constraint firstAttribute="centerX" secondItem="l0t-fG-6Cc" secondAttribute="centerX" constant="-6.5" id="a5I-Q8-E0K"/>
+                            <constraint firstItem="RvE-OL-yEN" firstAttribute="top" secondItem="o3k-RK-IkF" secondAttribute="top" id="auu-Bv-r0T"/>
+                            <constraint firstItem="wvq-i5-SwH" firstAttribute="top" secondItem="aou-eP-7Pa" secondAttribute="top" id="bAz-aK-gQq"/>
+                            <constraint firstItem="Mhs-8M-iFa" firstAttribute="leading" secondItem="WKV-vv-4VD" secondAttribute="leading" id="bCY-p9-lnx"/>
+                            <constraint firstItem="WAh-SK-dnL" firstAttribute="leading" secondItem="62v-PE-AkS" secondAttribute="trailing" constant="20" id="fWD-SZ-ScD"/>
+                            <constraint firstItem="wvq-i5-SwH" firstAttribute="leading" secondItem="aou-eP-7Pa" secondAttribute="trailing" constant="8" symbolic="YES" id="fk3-Fp-OxM"/>
+                            <constraint firstItem="WKV-vv-4VD" firstAttribute="leading" secondItem="o3k-RK-IkF" secondAttribute="leading" id="i2k-Ia-fbE"/>
+                            <constraint firstItem="hgK-Ex-QKD" firstAttribute="top" secondItem="PIc-w5-mCq" secondAttribute="bottom" constant="12" id="oyN-dn-8mu"/>
+                            <constraint firstItem="o3k-RK-IkF" firstAttribute="top" secondItem="WKV-vv-4VD" secondAttribute="bottom" constant="8" symbolic="YES" id="pBl-Lj-ROs"/>
+                            <constraint firstItem="NMQ-47-hhP" firstAttribute="top" secondItem="WAh-SK-dnL" secondAttribute="bottom" constant="8" symbolic="YES" id="tAf-KW-kGh"/>
+                            <constraint firstItem="l0t-fG-6Cc" firstAttribute="top" secondItem="aou-eP-7Pa" secondAttribute="bottom" constant="47" id="vpw-dh-0un"/>
+                            <constraint firstItem="jxK-Tu-WAX" firstAttribute="top" secondItem="l0t-fG-6Cc" secondAttribute="top" id="vwS-vf-6cB"/>
+                            <constraint firstAttribute="centerX" secondItem="aou-eP-7Pa" secondAttribute="centerX" constant="-5.5" id="wD3-Z2-i6R"/>
+                            <constraint firstItem="aou-eP-7Pa" firstAttribute="leading" secondItem="WKV-vv-4VD" secondAttribute="trailing" constant="8" symbolic="YES" id="yxP-8K-zYX"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yXN-G0-3Yd" appends="YES" id="NVL-M4-m7G"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="_bottomConstraint" destination="NOo-5a-rmB" id="BPV-Bx-xMJ"/>
+                        <outlet property="_digitalFontView" destination="hgK-Ex-QKD" id="zVS-ds-u8T"/>
+                        <outlet property="_textField" destination="twS-en-9g6" id="KbR-ev-2t2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCJ-Jy-cc5" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yXN-G0-3Yd">
+                    <connections>
+                        <action selector="handleTap:" destination="CpO-zH-hSj" id="bDM-CY-nc5"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+</document>

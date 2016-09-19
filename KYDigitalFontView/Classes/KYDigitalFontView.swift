@@ -25,170 +25,107 @@ SOFTWARE.
 import UIKit
 
 @IBDesignable
-public class KYDigitalFontView: UIView {
+open class KYDigitalFontView: UIView {
     
-    public struct DrawPositions : RawOptionSetType {
-        typealias RawValue = UInt
-        private var value: UInt = 0
-        init(_ value: UInt) { self.value = value }
-        public init(rawValue value: UInt) { self.value = value }
-        public init(nilLiteral: ()) { self.value = 0 }
-        public static var allZeros: DrawPositions { return self(0) }
-        static func fromMask(raw: UInt) -> DrawPositions { return self(raw) }
-        public var rawValue: UInt { return self.value }
+    public struct DrawPositions : OptionSet {
         
-        public static var None: DrawPositions { return self(0b0000000000000000) }
-        public static var _0  : DrawPositions { return self(0b0000000000000001) }
-        public static var _1  : DrawPositions { return self(0b0000000000000010) }
-        public static var _2  : DrawPositions { return self(0b0000000000000100) }
-        public static var _3  : DrawPositions { return self(0b0000000000001000) }
-        public static var _4  : DrawPositions { return self(0b0000000000010000) }
-        public static var _5  : DrawPositions { return self(0b0000000000100000) }
-        public static var _6  : DrawPositions { return self(0b0000000001000000) }
-        public static var _7  : DrawPositions { return self(0b0000000010000000) }
-        public static var _8  : DrawPositions { return self(0b0000000100000000) }
-        public static var _9  : DrawPositions { return self(0b0000001000000000) }
-        public static var _10 : DrawPositions { return self(0b0000010000000000) }
-        public static var _11 : DrawPositions { return self(0b0000100000000000) }
-        public static var _12 : DrawPositions { return self(0b0001000000000000) }
-        public static var _13 : DrawPositions { return self(0b0010000000000000) }
-        public static var _14 : DrawPositions { return self(0b0100000000000000) }
-        public static var _15 : DrawPositions { return self(0b1000000000000000) }
-        public static var All : DrawPositions { return self(0b1111111111111111) }
+        public let rawValue: UInt
         
-        public static func positionsWithCharacter(char: Character) -> DrawPositions {
-            let positions: DrawPositions
-            switch char {
-            case "a", "A":
-                positions = _0|_1|_2|_6|_7|_8|_9|_13
-            case "b", "B":
-                positions = _0|_1|_4|_6|_7|_8|_11|_13|_14|_15
-            case "c", "C":
-                positions = _0|_1|_2|_9|_14|_15
-            case "d", "D":
-                positions = _0|_1|_4|_6|_11|_13|_14|_15
-            case "e", "E":
-                positions = _0|_1|_2|_7|_8|_9|_14|_15
-            case "f", "F":
-                positions = _0|_1|_2|_7|_8|_9
-            case "g", "G":
-                positions = _0|_1|_2|_8|_9|_13|_14|_15
-            case "h", "H":
-                positions = _2|_6|_7|_8|_9|_13
-            case "i", "I":
-                positions = _0|_1|_4|_11|_14|_15
-            case "j", "J":
-                positions = _6|_9|_13|_14|_15
-            case "k", "K":
-                positions = _2|_5|_7|_9|_12
-            case "l", "L":
-                positions = _2|_9|_14|_15
-            case "m", "M":
-                positions = _2|_3|_5|_6|_9|_13
-            case "n", "N":
-                positions = _2|_3|_6|_9|_12|_13
-            case "o", "O":
-                positions = _0|_1|_2|_6|_9|_13|_14|_15
-            case "p", "P":
-                positions = _0|_1|_2|_6|_7|_8|_9
-            case "q", "Q":
-                positions = _0|_1|_2|_6|_9|_12|_13|_14|_15
-            case "r", "R":
-                positions = _0|_1|_2|_6|_7|_8|_9|_12
-            case "s", "S", "5":
-                positions = _0|_1|_2|_7|_8|_13|_14|_15
-            case "t", "T":
-                positions = _0|_1|_4|_11
-            case "u", "U":
-                positions = _2|_6|_9|_13|_14|_15
-            case "v", "V":
-                positions = _2|_5|_9|_10
-            case "w", "W":
-                positions = _2|_6|_9|_11|_13|_14|_15
-            case "x", "X":
-                positions = _3|_5|_10|_12
-            case "y", "Y":
-                positions = _3|_5|_11
-            case "z", "Z":
-                positions = _0|_1|_5|_10|_14|_15
-            case "0":
-                positions = _0|_1|_2|_3|_6|_9|_12|_13|_14|_15
-            case "1", "!":
-                positions = _4|_11
-            case "2":
-                positions = _0|_1|_6|_7|_8|_9|_14|_15
-            case "3":
-                positions = _0|_1|_6|_7|_8|_13|_14|_15
-            case "4":
-                positions = _2|_6|_7|_8|_13
-            case "6":
-                positions = _0|_1|_2|_7|_8|_9|_13|_14|_15
-            case "7":
-                positions = _0|_1|_6|_13
-            case "8":
-                positions = _0|_1|_2|_6|_7|_8|_9|_13|_14|_15
-            case "9":
-                positions = _0|_1|_2|_6|_7|_8|_13|_14|_15
-            case "$", "＄":
-                positions = _0|_1|_2|_4|_7|_8|_11|_13|_14|_15
-            case "+", "＋":
-                positions = _4|_7|_8|_11
-            case "-", "ー":
-                positions = _7|_8
-            case "*", "＊":
-                positions = _3|_4|_5|_7|_8|_10|_11|_12
-            case "/", "／":
-                positions = _5|_10
-            case "=", "＝":
-                positions = _7|_8|_14|_15
-            case "%", "％":
-                positions = _0|_2|_4|_5|_7|_8|_10|_11|_13|_15
-            case "\"", "”":
-                positions = _4|_6
-            case "\'", "’":
-                positions = _4
-            case "#", "＃":
-                positions = _2|_4|_7|_8|_9|_11|_14|_15
-            case "@", "＠":
-                positions = _0|_1|_2|_6|_8|_9|_11|_13|_15
-            case "&", "＆":
-                positions = _0|_3|_4|_7|_9|_12|_13|_14|_15
-            case "_", "＿":
-                positions = _14|_15
-            case "[", "(", "［", "（":
-                positions = _1|_4|_11|_15
-            case "]", ")", "］", "）":
-                positions = _0|_4|_11|_14
-            case "?", "？":
-                positions = _0|_1|_6|_8|_11
-            case "\\", "＼":
-                positions = _3|_12
-            case "{", "｛":
-                positions = _1|_4|_7|_11|_15
-            case "}", "｝":
-                positions = _0|_4|_8|_11|_14
-            case "<", "＜":
-                positions = _5|_12
-            case ">", "＞":
-                positions = _3|_10
-            case "`", "｀":
-                positions = _3
-            case "^", "＾":
-                positions = _10|_12
-            case "~", "〜":
-                positions = _9|_7|_11|_15
-            default:
-                positions = .All
-            }
-            return positions
+        public init(rawValue: UInt) {
+            self.rawValue = rawValue
         }
+        
+        public init(character: Character) {
+            switch character {
+            case "a", "A":              self = [._0,._1,._2,._6,._7,._8,._9,._13]
+            case "b", "B":              self = [._0,._1,._4,._6,._7,._8,._11,._13,._14,._15]
+            case "c", "C":              self = [._0,._1,._2,._9,._14,._15]
+            case "d", "D":              self = [._0,._1,._4,._6,._11,._13,._14,._15]
+            case "e", "E":              self = [._0,._1,._2,._7,._8,._9,._14,._15]
+            case "f", "F":              self = [._0,._1,._2,._7,._8,._9]
+            case "g", "G":              self = [._0,._1,._2,._8,._9,._13,._14,._15]
+            case "h", "H":              self = [._2,._6,._7,._8,._9,._13]
+            case "i", "I":              self = [._0,._1,._4,._11,._14,._15]
+            case "j", "J":              self = [._6,._9,._13,._14,._15]
+            case "k", "K":              self = [._2,._5,._7,._9,._12]
+            case "l", "L":              self = [._2,._9,._14,._15]
+            case "m", "M":              self = [._2,._3,._5,._6,._9,._13]
+            case "n", "N":              self = [._2,._3,._6,._9,._12,._13]
+            case "o", "O":              self = [._0,._1,._2,._6,._9,._13,._14,._15]
+            case "p", "P":              self = [._0,._1,._2,._6,._7,._8,._9]
+            case "q", "Q":              self = [._0,._1,._2,._6,._9,._12,._13,._14,._15]
+            case "r", "R":              self = [._0,._1,._2,._6,._7,._8,._9,._12]
+            case "s", "S", "5":         self = [._0,._1,._2,._7,._8,._13,._14,._15]
+            case "t", "T":              self = [._0,._1,._4,._11]
+            case "u", "U":              self = [._2,._6,._9,._13,._14,._15]
+            case "v", "V":              self = [._2,._5,._9,._10]
+            case "w", "W":              self = [._2,._6,._9,._11,._13,._14,._15]
+            case "x", "X":              self = [._3,._5,._10,._12]
+            case "y", "Y":              self = [._3,._5,._11]
+            case "z", "Z":              self = [._0,._1,._5,._10,._14,._15]
+            case "0":                   self = [._0,._1,._2,._3,._6,._9,._12,._13,._14,._15]
+            case "1", "!":              self = [._4,._11]
+            case "2":                   self = [._0,._1,._6,._7,._8,._9,._14,._15]
+            case "3":                   self = [._0,._1,._6,._7,._8,._13,._14,._15]
+            case "4":                   self = [._2,._6,._7,._8,._13]
+            case "6":                   self = [._0,._1,._2,._7,._8,._9,._13,._14,._15]
+            case "7":                   self = [._0,._1,._6,._13]
+            case "8":                   self = [._0,._1,._2,._6,._7,._8,._9,._13,._14,._15]
+            case "9":                   self = [._0,._1,._2,._6,._7,._8,._13,._14,._15]
+            case "$", "＄":             self = [._0,._1,._2,._4,._7,._8,._11,._13,._14,._15]
+            case "+", "＋":             self = [._4,._7,._8,._11]
+            case "-", "ー":             self = [._7,._8]
+            case "*", "＊":             self = [._3,._4,._5,._7,._8,._10,._11,._12]
+            case "/", "／":             self = [._5,._10]
+            case "=", "＝":             self = [._7,._8,._14,._15]
+            case "%", "％":             self = [._0,._2,._4,._5,._7,._8,._10,._11,._13,._15]
+            case "\"", "”":             self = [._4,._6]
+            case "\'", "’":             self = [._4]
+            case "#", "＃":             self = [._2,._4,._7,._8,._9,._11,._14,._15]
+            case "@", "＠":             self = [._0,._1,._2,._6,._8,._9,._11,._13,._15]
+            case "&", "＆":             self = [._0,._3,._4,._7,._9,._12,._13,._14,._15]
+            case "_", "＿":             self = [._14,._15]
+            case "[", "(", "［", "（":  self = [._1,._4,._11,._15]
+            case "]", ")", "］", "）":  self = [._0,._4,._11,._14]
+            case "?", "？":             self = [._0,._1,._6,._8,._11]
+            case "\\", "＼":            self = [._3,._12]
+            case "{", "｛":             self = [._1,._4,._7,._11,._15]
+            case "}", "｝":             self = [._0,._4,._8,._11,._14]
+            case "<", "＜":             self = [._5,._12]
+            case ">", "＞":             self = [._3,._10]
+            case "`", "｀":             self = [._3]
+            case "^", "＾":             self = [._10,._12]
+            case "~", "〜":             self = [._9,._7,._11,._15]
+            default:					self = .All
+            }
+        }
+        
+        public static var None: DrawPositions { return self.init(rawValue: 0b0000000000000000) }
+        public static var _0  : DrawPositions { return self.init(rawValue: 0b0000000000000001) }
+        public static var _1  : DrawPositions { return self.init(rawValue: 0b0000000000000010) }
+        public static var _2  : DrawPositions { return self.init(rawValue: 0b0000000000000100) }
+        public static var _3  : DrawPositions { return self.init(rawValue: 0b0000000000001000) }
+        public static var _4  : DrawPositions { return self.init(rawValue: 0b0000000000010000) }
+        public static var _5  : DrawPositions { return self.init(rawValue: 0b0000000000100000) }
+        public static var _6  : DrawPositions { return self.init(rawValue: 0b0000000001000000) }
+        public static var _7  : DrawPositions { return self.init(rawValue: 0b0000000010000000) }
+        public static var _8  : DrawPositions { return self.init(rawValue: 0b0000000100000000) }
+        public static var _9  : DrawPositions { return self.init(rawValue: 0b0000001000000000) }
+        public static var _10 : DrawPositions { return self.init(rawValue: 0b0000010000000000) }
+        public static var _11 : DrawPositions { return self.init(rawValue: 0b0000100000000000) }
+        public static var _12 : DrawPositions { return self.init(rawValue: 0b0001000000000000) }
+        public static var _13 : DrawPositions { return self.init(rawValue: 0b0010000000000000) }
+        public static var _14 : DrawPositions { return self.init(rawValue: 0b0100000000000000) }
+        public static var _15 : DrawPositions { return self.init(rawValue: 0b1000000000000000) }
+        public static var All : DrawPositions { return self.init(rawValue: 0b1111111111111111) }
+        
     }
     
     @IBInspectable public var lineWidth: CGFloat = 20.0 {
         didSet {
-            for (idx, layer) in enumerate(_layers) {
+            for (idx, layer) in _layers.enumerated() {
                 let newPath = _paths[idx]
-                layer.path = newPath.CGPath
+                layer.path = newPath.cgPath
             }
         }
     }
@@ -201,30 +138,29 @@ public class KYDigitalFontView: UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
             for layer in _layers {
-                layer.strokeColor = borderColor.CGColor
+                layer.strokeColor = borderColor.cgColor
             }
         }
     }
     
-    @IBInspectable public var fillColor: UIColor   = UIColor.blackColor() {
+    @IBInspectable public var fillColor: UIColor   = UIColor.black {
         didSet {
             for layer in _layers {
-                layer.fillColor = fillColor.CGColor
+                layer.fillColor = fillColor.cgColor
             }
         }
     }
     
     @IBInspectable var character: String = " " {
         didSet {
-            let char = character[advance(character.startIndex, 0)]
-            drawPositions = DrawPositions.positionsWithCharacter(char)
+            drawPositions = DrawPositions(character: character.characters.first!)
         }
     }
     
-    public var drawPositions: DrawPositions = DrawPositions.positionsWithCharacter("a") {
+    public var drawPositions: DrawPositions = DrawPositions(character:"a") {
         didSet {
             setNeedsLayout()
         }
@@ -389,52 +325,52 @@ public class KYDigitalFontView: UIView {
     
     private var _visibleLayers: [CAShapeLayer] {
         var layers = [CAShapeLayer]()
-        if drawPositions & ._0 != nil {
+        if drawPositions.contains([._0]) {
             layers.append(_layer0)
         }
-        if drawPositions & ._1 != nil {
+        if drawPositions.contains([._1]) {
             layers.append(_layer1)
         }
-        if drawPositions & ._2 != nil {
+        if drawPositions.contains([._2]) {
             layers.append(_layer2)
         }
-        if drawPositions & ._3 != nil {
+        if drawPositions.contains([._3]) {
             layers.append(_layer3)
         }
-        if drawPositions & ._4 != nil {
+        if drawPositions.contains([._4]) {
             layers.append(_layer4)
         }
-        if drawPositions & ._5 != nil {
+        if drawPositions.contains([._5]) {
             layers.append(_layer5)
         }
-        if drawPositions & ._6 != nil {
+        if drawPositions.contains([._6]) {
             layers.append(_layer6)
         }
-        if drawPositions & ._7 != nil {
+        if drawPositions.contains([._7]) {
             layers.append(_layer7)
         }
-        if drawPositions & ._8 != nil {
+        if drawPositions.contains([._8]) {
             layers.append(_layer8)
         }
-        if drawPositions & ._9 != nil {
+        if drawPositions.contains([._9]) {
             layers.append(_layer9)
         }
-        if drawPositions & ._10 != nil {
+        if drawPositions.contains([._10]) {
             layers.append(_layer10)
         }
-        if drawPositions & ._11 != nil {
+        if drawPositions.contains([._11]) {
             layers.append(_layer11)
         }
-        if drawPositions & ._12 != nil {
+        if drawPositions.contains([._12]) {
             layers.append(_layer12)
         }
-        if drawPositions & ._13 != nil {
+        if drawPositions.contains([._13]) {
             layers.append(_layer13)
         }
-        if drawPositions & ._14 != nil {
+        if drawPositions.contains([._14]) {
             layers.append(_layer14)
         }
-        if drawPositions & ._15 != nil {
+        if drawPositions.contains([._15]) {
             layers.append(_layer15)
         }
         return layers
@@ -483,19 +419,19 @@ public class KYDigitalFontView: UIView {
         
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
-        for (idx, subLayer) in enumerate(_layers) {
-            subLayer.hidden = true
+        for (idx, subLayer) in _layers.enumerated() {
+            subLayer.isHidden = true
             if subLayer.superlayer == nil {
                 layer.addSublayer(subLayer)
             } else {
                 let newPath = _paths[idx]
-                subLayer.path = newPath.CGPath
+                subLayer.path = newPath.cgPath
             }
         }
         for visibleLayer in _visibleLayers {
-            visibleLayer.hidden = false
+            visibleLayer.isHidden = false
         }
     }
     
@@ -503,64 +439,64 @@ public class KYDigitalFontView: UIView {
     // MARK: - Method
     /**************************************************************************/
     
-    private func p_horizontalPathWitnMinX(minX: CGFloat, maxX: CGFloat, minY: CGFloat, midY: CGFloat, maxY: CGFloat) -> UIBezierPath {
+    private func p_horizontalPathWitnMinX(_ minX: CGFloat, maxX: CGFloat, minY: CGFloat, midY: CGFloat, maxY: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(minX, midY))
-        path.addLineToPoint(CGPointMake(minX + self.lineWidth*0.5, minY))
-        path.addLineToPoint(CGPointMake(maxX - self.lineWidth*0.5, minY))
-        path.addLineToPoint(CGPointMake(maxX, midY))
-        path.addLineToPoint(CGPointMake(maxX - self.lineWidth*0.5, maxY))
-        path.addLineToPoint(CGPointMake(minX + self.lineWidth*0.5, maxY))
-        path.addLineToPoint(CGPointMake(minX, midY))
-        path.closePath()
+        path.move(to: CGPoint(x: minX, y: midY))
+        path.addLine(to: CGPoint(x: minX + self.lineWidth*0.5, y: minY))
+        path.addLine(to: CGPoint(x: maxX - self.lineWidth*0.5, y: minY))
+        path.addLine(to: CGPoint(x: maxX, y: midY))
+        path.addLine(to: CGPoint(x: maxX - self.lineWidth*0.5, y: maxY))
+        path.addLine(to: CGPoint(x: minX + self.lineWidth*0.5, y: maxY))
+        path.addLine(to: CGPoint(x: minX, y: midY))
+        path.close()
         return path
     }
     
-    private func p_verticalPathWitnMinX(minX: CGFloat, midX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
+    private func p_verticalPathWitnMinX(_ minX: CGFloat, midX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(midX, minY))
-        path.addLineToPoint(CGPointMake(maxX, minY + self.lineWidth*0.5))
-        path.addLineToPoint(CGPointMake(maxX, maxY - self.lineWidth*0.5))
-        path.addLineToPoint(CGPointMake(midX, maxY))
-        path.addLineToPoint(CGPointMake(minX, maxY - self.lineWidth*0.5))
-        path.addLineToPoint(CGPointMake(minX, minY + self.lineWidth*0.5))
-        path.addLineToPoint(CGPointMake(midX, minY))
-        path.closePath()
+        path.move(to: CGPoint(x: midX, y: minY))
+        path.addLine(to: CGPoint(x: maxX, y: minY + self.lineWidth*0.5))
+        path.addLine(to: CGPoint(x: maxX, y: maxY - self.lineWidth*0.5))
+        path.addLine(to: CGPoint(x: midX, y: maxY))
+        path.addLine(to: CGPoint(x: minX, y: maxY - self.lineWidth*0.5))
+        path.addLine(to: CGPoint(x: minX, y: minY + self.lineWidth*0.5))
+        path.addLine(to: CGPoint(x: midX, y: minY))
+        path.close()
         return path
     }
     
-    private func p_backSlashPathWitnMinX(minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
+    private func p_backSlashPathWitnMinX(_ minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(minX, minY))
-        path.addLineToPoint(CGPointMake(minX + self.lineWidth*0.75, minY))
-        path.addLineToPoint(CGPointMake(maxX, maxY - self.lineWidth*0.75))
-        path.addLineToPoint(CGPointMake(maxX, maxY))
-        path.addLineToPoint(CGPointMake(maxX - self.lineWidth*0.75, maxY))
-        path.addLineToPoint(CGPointMake(minX, minY + self.lineWidth*0.75))
-        path.addLineToPoint(CGPointMake(minX, minY))
-        path.closePath()
+        path.move(to: CGPoint(x: minX, y: minY))
+        path.addLine(to: CGPoint(x: minX + self.lineWidth*0.75, y: minY))
+        path.addLine(to: CGPoint(x: maxX, y: maxY - self.lineWidth*0.75))
+        path.addLine(to: CGPoint(x: maxX, y: maxY))
+        path.addLine(to: CGPoint(x: maxX - self.lineWidth*0.75, y: maxY))
+        path.addLine(to: CGPoint(x: minX, y: minY + self.lineWidth*0.75))
+        path.addLine(to: CGPoint(x: minX, y: minY))
+        path.close()
         return path
     }
 
-    private func p_slashPathWitnMinX(minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
+    private func p_slashPathWitnMinX(_ minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) -> UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(minX, maxY))
-        path.addLineToPoint(CGPointMake(minX, maxY - self.lineWidth*0.75))
-        path.addLineToPoint(CGPointMake(maxX - self.lineWidth*0.75, minY))
-        path.addLineToPoint(CGPointMake(maxX, minY))
-        path.addLineToPoint(CGPointMake(maxX, minY + self.lineWidth*0.75))
-        path.addLineToPoint(CGPointMake(minX + self.lineWidth*0.75, maxY))
-        path.addLineToPoint(CGPointMake(minX, maxY))
-        path.closePath()
+        path.move(to: CGPoint(x: minX, y: maxY))
+        path.addLine(to: CGPoint(x: minX, y: maxY - self.lineWidth*0.75))
+        path.addLine(to: CGPoint(x: maxX - self.lineWidth*0.75, y: minY))
+        path.addLine(to: CGPoint(x: maxX, y: minY))
+        path.addLine(to: CGPoint(x: maxX, y: minY + self.lineWidth*0.75))
+        path.addLine(to: CGPoint(x: minX + self.lineWidth*0.75, y: maxY))
+        path.addLine(to: CGPoint(x: minX, y: maxY))
+        path.close()
         return path
     }
     
-    private func p_layerWithPath(path: UIBezierPath) -> CAShapeLayer {
+    private func p_layerWithPath(_ path: UIBezierPath) -> CAShapeLayer {
         let layer         = CAShapeLayer()
-        layer.path        = path.CGPath
-        layer.strokeColor = borderColor.CGColor
+        layer.path        = path.cgPath
+        layer.strokeColor = borderColor.cgColor
         layer.lineWidth   = borderWidth
-        layer.fillColor   = fillColor.CGColor
+        layer.fillColor   = fillColor.cgColor
         layer.frame       = self.bounds
         return layer
     }
